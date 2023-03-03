@@ -4,7 +4,9 @@
 module.exports = {
   siteMetadata: {
     title: `Alper Tech News`,
-    siteUrl: `https://www.yourdomain.tld`
+    body: {
+      content: "Just some SEO content",
+    },
   },
-  plugins: ["gatsby-plugin-sass"]
+  plugins: ["gatsby-plugin-sass"],
 };

@@ -1,40 +1,47 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
-import { Link } from "gatsby";
+import FeaturedBlog from "../components/FeaturedBlog";
+import BlogListing from "../components/BlogListing";
 
 export default function IndexPage({ data }) {
-  const { totalCount, nodes } = data.allMarkdownRemark;
+  const { nodes } = data.allMarkdownRemark;
 
   return (
     <Layout>
-      <h4>{totalCount} Posts</h4>
-      {nodes.map(({ id, frontmatter, excerpt }) => (
-        <div key={id}>
-          <h3>
-            {frontmatter.title}
-            <span> - {frontmatter.date}</span>
-          </h3>
-          <p>{excerpt}</p>
-          <Link to={`/blogs/${frontmatter.slug}`}>Read More</Link>
-        </div>
-      ))}
+      <div className="columns">
+        {nodes.slice(0, 2).map((node) => (
+          <div key={node.id} className="column">
+            <FeaturedBlog blog={node} />
+          </div>
+        ))}
+      </div>
+      <div className="p-4">
+        <BlogListing blogs={nodes} />
+      </div>
     </Layout>
   );
 }
 
 export const query = graphql`
   query {
-    allMarkdownRemark {
-      totalCount
+    allMarkdownRemark(
+      limit: 3
+      sort: {
+        order: [DESC, ASC]
+        fields: [frontmatter___date, frontmatter___rating]
+      }
+    ) {
       nodes {
         id
         frontmatter {
           title
           date(formatString: "DD MMMM, YYYY")
           slug
+          subtitle
+          author
+          rating
         }
-        excerpt
       }
     }
   }

@@ -1,15 +1,20 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
 import FeaturedBlog from "../components/FeaturedBlog";
 import BlogListing from "../components/BlogListing";
 import SearchContainer from "../components/SearchContainer";
+import Seo from "../components/Seo";
 
 export default function IndexPage({ data, pageContext }) {
   const { nodes } = data.allMarkdownRemark;
 
   return (
     <Layout>
+      <Seo
+        title="Home"
+        description="Code space is aiming to be the best platform to learn programming"
+      />
       <div className="columns">
         {nodes.slice(0, 2).map((node) => (
           <div key={node.id} className="column">
@@ -24,6 +29,9 @@ export default function IndexPage({ data, pageContext }) {
             <SearchContainer searchIndex={pageContext.searchIndex} />
           )}
         />
+        <Link className="button is-small is-primary is-outlined" to="/blogs">
+          Read more blogs
+        </Link>
       </div>
     </Layout>
   );

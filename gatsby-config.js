@@ -3,7 +3,8 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Alper Tech News`,
+    title: `Place to learn coding`,
+    description: "The best resource to learn coding online",
     body: {
       content: "Just some SEO content",
     },
@@ -33,5 +34,6 @@ module.exports = {
         ],
       },
     },
+    "gatsby-plugin-react-helmet",
   ],
 };

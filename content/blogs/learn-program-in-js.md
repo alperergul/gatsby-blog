@@ -5,6 +5,7 @@ date: 2021-10-10
 slug: learn-programming-in-js
 author: Alper Ergül
 rating: 3
+coverImage: https://thrangra.sirv.com/AngularJS.jpeg
 ---
 
 ## Emphasis

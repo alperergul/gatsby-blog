@@ -5,6 +5,7 @@ date: 2021-05-10
 slug: learn-gatsby-quick
 author: Alper Ergül
 rating: 1
+coverImage: https://thrangra.sirv.com/AngularJS.jpeg
 ---
 
 # h1 Heading 8-)

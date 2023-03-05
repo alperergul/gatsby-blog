@@ -2,7 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { graphql, useStaticQuery } from "gatsby";
 
-export default function Seo({ title, description, meta = [] }) {
+export default function Seo({ title, image, description, meta = [] }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -20,6 +20,7 @@ export default function Seo({ title, description, meta = [] }) {
     ? `${title} | ${site.siteMetadata?.title}`
     : `${site.siteMetadata?.title}`;
   const defaultDescription = description || site.siteMetadata?.description;
+  const defaultImage = image || "https://thrangra.sirv.com/VueReactAng.jpeg";
 
   return (
     <Helmet
@@ -46,7 +47,7 @@ export default function Seo({ title, description, meta = [] }) {
         },
         {
           name: "og:image",
-          content: "https://thrangra.sirv.com/VueReactAng.jpeg",
+          content: defaultImage,
         },
         {
           name: "twitter:card",
@@ -66,7 +67,7 @@ export default function Seo({ title, description, meta = [] }) {
         },
         {
           name: "twitter:image",
-          content: "https://thrangra.sirv.com/VueReactAng.jpeg",
+          content: defaultImage,
         },
       ].concat(meta)}
     />

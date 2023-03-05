@@ -10,7 +10,9 @@ export default function About({ data }) {
         title="About"
         description="Learn more about Code space methodology"
       />
+      <h1>{process.env.BASE_URL}</h1>
       <h1>{data.site.siteMetadata.title} </h1>
+      <h1>{data.site.siteMetadata.body.content} </h1>
     </Layout>
   );
 }

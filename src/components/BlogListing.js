@@ -6,7 +6,7 @@ export default function BlogListing({ blogs }) {
     <>
       <div className="columns is-multiline">
         {blogs.map(({ id, frontmatter }) => (
-          <div ket={id} className="column is-9">
+          <div key={id} className="column is-9">
             <Blog
               title={frontmatter.title}
               subtitle={frontmatter.subtitle}
